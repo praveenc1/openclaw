@@ -11,6 +11,7 @@ services:
     volumes:
       - ${OPENCLAW_CONFIG_DIR}:/home/node/.openclaw
       - ${OPENCLAW_WORKSPACE_DIR}:/home/node/.openclaw/workspace
+      - /home/pc/tailscale/tmp/tailscaled.sock:/var/run/tailscale/tailscaled.sock
     ports:
       - "${OPENCLAW_GATEWAY_PORT:-18789}:18789"
       - "${OPENCLAW_BRIDGE_PORT:-18790}:18790"
@@ -40,6 +41,7 @@ services:
     volumes:
       - ${OPENCLAW_CONFIG_DIR}:/home/node/.openclaw
       - ${OPENCLAW_WORKSPACE_DIR}:/home/node/.openclaw/workspace
+      - /home/pc/tailscale/tmp/tailscaled.sock:/var/run/tailscale/tailscaled.sock
     stdin_open: true
     tty: true
     init: true
